@@ -17,7 +17,7 @@
     pkgs.lib.concatStringsSep "\n"
     (pkgs.lib.mapAttrsToList (k: v: "alias ${k} = ${v}") aliases);
 in
-  (inputs.wrapper-manager.lib.build {
+  inputs.wrapper-manager.lib.build {
     inherit pkgs;
     modules = [
       {
@@ -42,8 +42,4 @@ in
           // configs;
       }
     ];
-  }).overrideAttrs (_: prev: {
-    pname = "seashell";
-    meta.mainProgram = "seashell";
-    passthru.shellPath = "/bin/seashell";
-  })
+  }
