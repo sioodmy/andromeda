@@ -1,5 +1,7 @@
 {pkgs, ...}:
 with pkgs; [
+  # "smart" cd
+  zoxide
   # Tbh should be preinstalled
   gnumake
   # Runs programs without installing them
