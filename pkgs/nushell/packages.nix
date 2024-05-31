@@ -1,5 +1,8 @@
 {pkgs, ...}:
 with pkgs; [
+  # cool prompts
+  starship
+  
   # "smart" cd
   zoxide
   # Tbh should be preinstalled

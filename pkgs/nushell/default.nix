@@ -22,7 +22,7 @@ in
       {
         wrappers.nushell = {
           basePackage = pkgs.nushell;
-          pathAdd = packages;
+          pathAdd = with inputs.self.packages.${pkgs.system}; [ helix bottom ]++ packages;
           flags = [
             "--config"
             (pkgs.writeText "config.nu" (config + aliasesStr))
