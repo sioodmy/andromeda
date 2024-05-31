@@ -1,10 +1,5 @@
 {pkgs, ...}:
-with pkgs; [
-  # cool prompts
-  starship
-  
-  # "smart" cd
-  zoxide
+with pkgs; [ 
   # Tbh should be preinstalled
   gnumake
   # Runs programs without installing them

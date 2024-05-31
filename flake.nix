@@ -26,19 +26,19 @@
         system,
         ...
       }: {
-        packages = import ./pkgs {inherit pkgs inputs;};
-        devShells.default = let
-          shell = inputs.self.packages.${pkgs.system}.default;
-        in
-          pkgs.mkShell {
-            packages = [
-              shell
-            ];
-            name = "seashell";
-            shellHook = ''
-              ${shell}/bin/nu
-            '';
-          };
+        packages = rec {
+          seashell = pkgs.callPackage ./seashell {inherit pkgs inputs;};
+          default = seashell;
+        };
+        devShells.default = pkgs.mkShell {
+          packages = [
+            inputs.self.packages.${pkgs.system}.default
+          ];
+          name = "seashell";
+          shellHook = ''
+            seashell
+          '';
+        };
         formatter = pkgs.alejandra;
       };
     };

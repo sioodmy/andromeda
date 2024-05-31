@@ -21,7 +21,7 @@ in ''
       STARSHIP_SHELL: "nu"
       STARSHIP_SESSION_KEY: (random chars -l 16)
       PROMPT_MULTILINE_INDICATOR: (
-          ^/etc/profiles/per-user/sioodmy/bin/starship prompt --continuation
+          ^${getExe pkgs.starship} prompt --continuation
       )
 
       # Does not play well with default character module.
@@ -31,7 +31,7 @@ in ''
       PROMPT_COMMAND: {||
           # jobs are not supported
           (
-              ^/etc/profiles/per-user/sioodmy/bin/starship prompt
+              ^${getExe pkgs.starship} prompt
                   --cmd-duration $env.CMD_DURATION_MS
                   $"--status=($env.LAST_EXIT_CODE)"
                   --terminal-width (term size).columns
@@ -44,7 +44,7 @@ in ''
 
       PROMPT_COMMAND_RIGHT: {||
           (
-              ^/etc/profiles/per-user/sioodmy/bin/starship prompt
+              ^${getExe pkgs.starship} prompt
                   --right
                   --cmd-duration $env.CMD_DURATION_MS
                   $"--status=($env.LAST_EXIT_CODE)"

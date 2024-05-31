@@ -2,7 +2,6 @@
   getExe = pkgs.lib.getExe;
 in
   with pkgs; {
-    cd = "z";
     m = "mkdir";
 
     g = "git";

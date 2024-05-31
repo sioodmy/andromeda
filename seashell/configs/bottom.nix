@@ -1,6 +1,5 @@
 {
   pkgs,
-  inputs,
   ...
 }: let
   toml = pkgs.formats.toml {};
@@ -27,18 +26,10 @@
       }
     ];
   };
-in
-  inputs.wrapper-manager.lib.build {
-    inherit pkgs;
-    modules = [
-      {
-        wrappers.bottom = {
-          basePackage = pkgs.bottom;
-          flags = [
-            "--config"
-            (toml.generate "config.toml" settings)
-          ];
-        };
-      }
-    ];
-  }
+in {
+  basePackage = pkgs.bottom;
+  flags = [
+    "--config"
+    (toml.generate "config.toml" settings)
+  ];
+}

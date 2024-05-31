@@ -76,28 +76,20 @@
       };
     };
   };
-in
-  inputs.wrapper-manager.lib.build {
-    inherit pkgs;
-    modules = [
-      {
-        wrappers.helix = {
-          basePackage = inputs.helix.packages.${pkgs.system}.default;
-          flags = [
-            "--config"
-            (toml.generate "config.toml" settings)
-          ];
-          pathAdd = with pkgs; [
-            clang-tools
-            marksman
-            nil
-            nodePackages.bash-language-server
-            nodePackages.vscode-css-languageserver-bin
-            nodePackages.vscode-langservers-extracted
-            shellcheck
-            typst-lsp
-          ];
-        };
-      }
-    ];
-  }
+in {
+  basePackage = inputs.helix.packages.${pkgs.system}.default;
+  flags = [
+    "--config"
+    (toml.generate "config.toml" settings)
+  ];
+  pathAdd = with pkgs; [
+    clang-tools
+    marksman
+    nil
+    nodePackages.bash-language-server
+    nodePackages.vscode-css-languageserver-bin
+    nodePackages.vscode-langservers-extracted
+    shellcheck
+    typst-lsp
+  ];
+}
