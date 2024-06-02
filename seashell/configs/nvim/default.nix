@@ -51,4 +51,7 @@ in {
     shellcheck
     typst-lsp
   ];
+  renames = {
+    "nvim" = "v";
+  };
 }
