@@ -14,12 +14,13 @@
       lualine-nvim
       nvim-web-devicons
       gitsigns-nvim
-      vim-highlightedyank
       indent-blankline-nvim-lua
       nvim-autopairs
       neoformat
       comment-nvim
       vim-speeddating
+      luasnip
+      vim-startuptime
       which-key-nvim
       telescope-nvim
       hop-nvim
@@ -40,8 +41,10 @@
   };
 in {
   basePackage = pkgs.wrapNeovimUnstable pkgs.neovim-unwrapped neovimConfig;
+  # mostly LSP related packages
   pathAdd = with pkgs; [
     gopls
+    go
     nil
     rust-analyzer
     alejandra
@@ -49,7 +52,10 @@ in {
     nodePackages.vscode-css-languageserver-bin
     nodePackages.vscode-langservers-extracted
     shellcheck
+    cargo
+    nixd
     typst-lsp
+    stylua
   ];
   renames = {
     "nvim" = "v";

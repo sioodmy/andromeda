@@ -20,6 +20,11 @@ nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
+nnoremap <C-d> <C-d>zz
+nnoremap <C-u> <C-u>zz
+
+xnoremap <leader>p "\"_dP
+
 " Autoformat on save 
 augroup fmt
   autocmd!
