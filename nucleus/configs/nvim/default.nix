@@ -31,7 +31,7 @@
         vim-startuptime
         which-key-nvim
         telescope-nvim
-        hop-nvim
+        harpoon
 
         # Language support
         nvim-lspconfig
@@ -61,7 +61,8 @@ in {
     nodePackages.bash-language-server
     nodePackages.vscode-css-languageserver-bin
     nodePackages.vscode-langservers-extracted
-    nodePackages_latest.prettier
+    nodePackages.typescript-language-server
+    nodePackages.prettier
     shellcheck
     cargo
     nixd

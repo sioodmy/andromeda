@@ -18,8 +18,11 @@ nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader><leader> <cmd>Telescope git_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
-nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 nnoremap <leader>fn <cmd>Telescope orgmode search_headings<cr>
+nnoremap <leader>fh <cmd>Telescope harpoon marks<cr>
+
+nnoremap <leader>m <cmd>lua require("harpoon.mark").add_file()<cr>
+nnoremap <leader>hp <cmd>lua require("harpoon.ui").toggle_quick_menu()<cr>
 
 nnoremap <leader>w <cmd>update <cr>
 

@@ -102,6 +102,7 @@ nvim_lsp.html.setup({
 	capabilities = capabilities,
 })
 nvim_lsp.nixd.setup({})
+nvim_lsp.tsserver.setup({})
 
 local on_attach = function(client)
 	require("completion").on_attach(client)
@@ -128,8 +129,6 @@ nvim_lsp.rust_analyzer.setup({
 		},
 	},
 })
-
-require("hop").setup({ keys = "etovxqpdygfblzhckisuran" })
 
 local orgmode = require("orgmode")
 
@@ -167,6 +166,7 @@ vim.filetype.add({
 local telescope = require("telescope")
 telescope.setup({})
 telescope.load_extension("orgmode")
+telescope.load_extension("harpoon")
 
 require("colorizer").setup({
 	filetypes = { "*" },
