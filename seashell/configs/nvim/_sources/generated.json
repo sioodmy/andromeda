@@ -1,0 +1,82 @@
+{
+    "neotree": {
+        "cargoLocks": null,
+        "date": "2024-05-31",
+        "extract": null,
+        "name": "neotree",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "nvim-neo-tree",
+            "repo": "neo-tree.nvim",
+            "rev": "974bbd434c25dc625185571b0455c831cfdde067",
+            "sha256": "sha256-LP3liN6SVkXzev0SzfH8jPl67wNWqbpBZKk3wvE0doo=",
+            "type": "github"
+        },
+        "version": "974bbd434c25dc625185571b0455c831cfdde067"
+    },
+    "nvim-colorizer": {
+        "cargoLocks": null,
+        "date": "2023-12-23",
+        "extract": null,
+        "name": "nvim-colorizer",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "NvChad",
+            "repo": "nvim-colorizer.lua",
+            "rev": "85855b38011114929f4058efc97af1059ab3e41d",
+            "sha256": "sha256-oKvFN2K+ASlPNwj2rhptR/ErYgo6XKBPhXSZotDdCP0=",
+            "type": "github"
+        },
+        "version": "85855b38011114929f4058efc97af1059ab3e41d"
+    },
+    "org-bullets": {
+        "cargoLocks": null,
+        "date": "2024-02-21",
+        "extract": null,
+        "name": "org-bullets",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "nvim-orgmode",
+            "repo": "org-bullets.nvim",
+            "rev": "3623e86e0fa6d07f45042f7207fc333c014bf167",
+            "sha256": "sha256-aIEe1dgUmDzu9kl33JCNcgyfp8DymURltH0HcZfph0Y=",
+            "type": "github"
+        },
+        "version": "3623e86e0fa6d07f45042f7207fc333c014bf167"
+    },
+    "telescope-orgmode": {
+        "cargoLocks": null,
+        "date": "2024-05-24",
+        "extract": null,
+        "name": "telescope-orgmode",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "nvim-orgmode",
+            "repo": "telescope-orgmode.nvim",
+            "rev": "a8478496911e378868f44bd9fd5fd5ce5eeec57b",
+            "sha256": "sha256-08QCcMm10XiCMkQfOdpAESck3k/O1PINqRjD+jwLusc=",
+            "type": "github"
+        },
+        "version": "a8478496911e378868f44bd9fd5fd5ce5eeec57b"
+    }
+}

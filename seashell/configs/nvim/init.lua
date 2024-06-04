@@ -154,6 +154,7 @@ orgmode.setup({
 	org_agenda_files = { "~/docs/notes/*.org" },
 	org_default_notes_file = "~/docs/notes/refile.org",
 })
+require("org-bullets").setup()
 
 require("Comment").setup()
 
@@ -163,4 +164,14 @@ vim.filetype.add({
 	},
 })
 
-require("telescope").setup({})
+local telescope = require("telescope")
+telescope.setup({})
+telescope.load_extension("orgmode")
+
+require("colorizer").setup({
+	filetypes = { "*" },
+	user_default_options = {
+		rgb_fn = false,
+		hsl_fn = false,
+	},
+})

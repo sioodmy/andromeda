@@ -1,5 +1,4 @@
 " leader key
-" let mapleader="\<SPACE>"
 let mapleader = "\<Space>"
 let maplocalleader = "\<Space>"
 nnoremap <Space> <Nop>
@@ -16,9 +15,13 @@ set splitright
 set splitbelow
 
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader><leader> <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+nnoremap <leader>fn <cmd>Telescope orgmode search_headings<cr>
+
+nnoremap <leader>w <cmd>update <cr>
 
 nnoremap <C-d> <C-d>zz
 nnoremap <C-u> <C-u>zz

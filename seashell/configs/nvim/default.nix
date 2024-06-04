@@ -1,4 +1,10 @@
 {pkgs, ...}: let
+  nvfetcher = builtins.mapAttrs (name: value:
+    pkgs.vimUtils.buildVimPlugin {
+      inherit name;
+      inherit (value) src;
+    }) (pkgs.callPackages ./_sources/generated.nix {});
+
   neovimConfig = pkgs.neovimUtils.makeNeovimConfig {
     withPython3 = false;
     withRuby = false;
@@ -8,36 +14,40 @@
       :luafile ${./init.lua}
     '';
 
-    plugins = with pkgs.vimPlugins; [
-      catppuccin-nvim
-      bufferline-nvim
-      lualine-nvim
-      nvim-web-devicons
-      gitsigns-nvim
-      indent-blankline-nvim-lua
-      nvim-autopairs
-      neoformat
-      comment-nvim
-      vim-speeddating
-      luasnip
-      vim-startuptime
-      which-key-nvim
-      telescope-nvim
-      hop-nvim
+    plugins =
+      (builtins.attrValues nvfetcher)
+      ++ (with pkgs.vimPlugins; [
+        catppuccin-nvim
+        bufferline-nvim
+        lualine-nvim
+        nvim-web-devicons
+        gitsigns-nvim
+        indent-blankline-nvim-lua
+        nvim-autopairs
+        neoformat
+        comment-nvim
+        vim-speeddating
+        luasnip
+        vim-startuptime
+        which-key-nvim
+        telescope-nvim
+        hop-nvim
 
-      # Language support
-      nvim-lspconfig
-      nvim-cmp
-      cmp-cmdline
-      cmp-nvim-lsp
-      cmp-buffer
-      cmp-path
+        # Language support
+        nvim-lspconfig
+        nvim-cmp
+        cmp-cmdline
+        cmp-nvim-lsp
+        cmp-buffer
+        cmp-path
 
-      nvim-treesitter.withAllGrammars
+        nvim-treesitter.withAllGrammars
 
-      vim-nix
-      orgmode
-    ];
+        orgmode
+
+        nui-nvim
+        plenary-nvim
+      ]);
   };
 in {
   basePackage = pkgs.wrapNeovimUnstable pkgs.neovim-unwrapped neovimConfig;
@@ -51,6 +61,7 @@ in {
     nodePackages.bash-language-server
     nodePackages.vscode-css-languageserver-bin
     nodePackages.vscode-langservers-extracted
+    nodePackages_latest.prettier
     shellcheck
     cargo
     nixd

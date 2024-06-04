@@ -8,24 +8,12 @@
       url = "github:viperML/wrapper-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    helix = {
-      url = "github:SoraTenshi/helix/new-daily-driver";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = inputs @ {flake-parts, ...}:
     flake-parts.lib.mkFlake {inherit inputs;} {
       systems = ["x86_64-linux" "aarch64-linux" "aarch64-darwin" "x86_64-darwin"];
-      perSystem = {
-        config,
-        self',
-        inputs',
-        pkgs,
-        system,
-        ...
-      }: {
+      perSystem = {pkgs, ...}: {
         packages = rec {
           seashell = pkgs.callPackage ./seashell {inherit pkgs inputs;};
           default = seashell;
