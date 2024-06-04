@@ -23,7 +23,7 @@ in
       {
         wrappers =
           {
-            seashell = {
+            nucleus = {
               basePackage = pkgs.nushellFull;
               pathAdd = packages;
               flags = [
@@ -35,7 +35,7 @@ in
               ];
               env.STARSHIP_CONFIG.value = toml.generate "starship.toml" starship-settings;
               renames = {
-                "nu" = "seashell";
+                "nu" = "nucleus";
               };
             };
           }

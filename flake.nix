@@ -12,19 +12,23 @@
 
   outputs = inputs @ {flake-parts, ...}:
     flake-parts.lib.mkFlake {inherit inputs;} {
-      systems = ["x86_64-linux" "aarch64-linux" "aarch64-darwin" "x86_64-darwin"];
+      systems = ["x86_64-linux"];
       perSystem = {pkgs, ...}: {
         packages = rec {
-          seashell = pkgs.callPackage ./seashell {inherit pkgs inputs;};
-          default = seashell;
+          # cli
+          nucleus = pkgs.callPackage ./nucleus {inherit pkgs inputs;};
+
+          # my desktop
+          andromeda = pkgs.callPackage ./andromeda {inherit pkgs inputs;};
+          default = nucleus;
         };
         devShells.default = pkgs.mkShell {
           packages = [
             inputs.self.packages.${pkgs.system}.default
           ];
-          name = "seashell";
+          name = "nucleus";
           shellHook = ''
-            seashell
+            nucleus
           '';
         };
         formatter = pkgs.alejandra;
