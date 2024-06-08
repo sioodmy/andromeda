@@ -1,5 +1,5 @@
 {pkgs, ...}:
-with pkgs; [ 
+with pkgs; [
   # Tbh should be preinstalled
   gnumake
   # Runs programs without installing them

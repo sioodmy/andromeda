@@ -29,6 +29,7 @@
 
           # my desktop
           andromeda = pkgs.callPackage ./andromeda {inherit pkgs inputs;};
+          andromeda-niri = pkgs.callPackage ./andromeda-niri {inherit pkgs inputs;};
           default = nucleus;
         };
         devShells.default = pkgs.mkShell {

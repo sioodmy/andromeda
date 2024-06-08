@@ -4,6 +4,7 @@
   ...
 }: let
   inherit (inputs.niri.lib.kdl) serialize plain leaf flag node;
+  e = pkgs.lib.getExe;
   r = 8.0;
 in
   pkgs.writeText "config.kdl"
@@ -13,6 +14,7 @@ in
         (plain "keyboard" [
           (plain "xkb" [
             (leaf "layout" "pl")
+            (leaf "options" "caps:escape")
           ])
           (leaf "repeat-delay" 600)
           (leaf "repeat-rate" 25)
@@ -126,9 +128,9 @@ in
         (flag "skip-at-startup")
       ])
       (plain "binds" [
-        (plain "Mod+T" [(leaf "spawn" ["foot"])])
+        (plain "Mod+Return" [(leaf "spawn" ["foot"])])
         (plain "Mod+Shift+L" [(leaf "spawn" ["gtklock"])])
-        (plain "Mod+Space" [(leaf "spawn" ["anyrun" "-t" "launcher"])])
+        (plain "Mod+Space" [(leaf "spawn" ["ags" "-t" "launcher"])])
 
         (plain "XF86AudioRaiseVolume" [(leaf "spawn" ["pamixer" "-i" "5"])])
         (plain "XF86AudioLowerVolume" [(leaf "spawn" ["pamixer" "-i" "5"])])
@@ -220,7 +222,23 @@ in
 
         (plain "Mod+Shift+P" [(flag "power-off-monitors")])
       ])
-      (leaf "spawn-at-startup" ["ags"])
-      (leaf "spawn-at-startup" ["swaybg" "-i" "${./wall.jpg}"])
+      (leaf "spawn-at-startup" [
+        "${pkgs.dbus}/bin/dbus-update-activation-environment"
+        "--systemd"
+        "DISPLAY"
+        "WAYLAND_DISPLAY"
+        "SWAYSOCK"
+        "XDG_CURRENT_DESKTOP"
+        "XDG_SESSION_TYPE"
+        "NIXOS_OZONE_WL"
+        "XCURSOR_THEME"
+        "XCURSOR_SIZE"
+        "XDG_DATA_DIRS"
+      ])
+      (leaf "spawn-at-startup" ["as-service" "ags"])
+      (leaf "spawn-at-startup" ["${e pkgs.swaybg}" "-i" "${./wall.jpg}"])
+      (leaf "spawn-at-startup" ["${e pkgs.wlsunset}" "-l" "50.0" "-L" "19.94"])
+      (leaf "screenshot-path" "~/pics/ss/ss%Y-%m-%d %H-%M-%S.png")
       (flag "environment")
+      (flag "prefer-no-csd")
     ])
