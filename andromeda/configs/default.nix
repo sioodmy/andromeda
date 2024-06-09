@@ -7,4 +7,5 @@
   ags = import ./ags {inherit inputs pkgs;};
 
   gtklock = import ./gtklock {inherit pkgs;};
+  rofi = import ./rofi {inherit pkgs;};
 }

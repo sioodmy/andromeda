@@ -130,10 +130,12 @@ in
       (plain "binds" [
         (plain "Mod+Return" [(leaf "spawn" ["foot"])])
         (plain "Mod+Shift+L" [(leaf "spawn" ["gtklock"])])
-        (plain "Mod+Space" [(leaf "spawn" ["ags" "-t" "launcher"])])
+        (plain "Mod+Space" [(leaf "spawn" ["launcher" "-show" "drun"])])
+        (plain "XF86Keyboard" [(leaf "spawn" ["launcher" "-show" "calc"])])
+        (plain "XF86Favorites" [(leaf "spawn" ["launcher" "-show" "emoji"])])
 
         (plain "XF86AudioRaiseVolume" [(leaf "spawn" ["pamixer" "-i" "5"])])
-        (plain "XF86AudioLowerVolume" [(leaf "spawn" ["pamixer" "-i" "5"])])
+        (plain "XF86AudioLowerVolume" [(leaf "spawn" ["pamixer" "-d" "5"])])
         (plain "XF86AudioMute" [(leaf "spawn" ["pamixer" "-t"])])
 
         (plain "XF86MonBrightnessUp" [(leaf "spawn" ["brightnessctl" "set" "+5%"])])

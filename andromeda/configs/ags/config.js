@@ -2,7 +2,6 @@ import Bar from "./windows/bar/main.js";
 import Osd from "./windows/osd/main.js";
 import Notifcation from "./windows/osd/main.js";
 import NotificationPopup from "./windows/notifications/popups.js";
-import Launcher from "./windows/launcher/main.js";
 
 import { App, Audio, Notifications, Utils } from "./imports.js";
 
@@ -40,4 +39,4 @@ function addWindows(windows) {
   windows.forEach((win) => App.addWindow(win));
 }
 
-addWindows([Bar(), Osd(), NotificationPopup(), Launcher()]);
+addWindows([Bar(), Osd(), NotificationPopup()]);
