@@ -24,7 +24,7 @@ in
         wrappers =
           {
             nucleus = {
-              basePackage = pkgs.nushellFull;
+              basePackage = pkgs.nushell;
               pathAdd = packages;
               flags = [
                 "--config"
