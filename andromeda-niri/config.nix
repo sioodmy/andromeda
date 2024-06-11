@@ -128,7 +128,7 @@ in
         (flag "skip-at-startup")
       ])
       (plain "binds" [
-        (plain "Mod+Return" [(leaf "spawn" ["footclient"])])
+        (plain "Mod+Return" [(leaf "spawn" ["foot"])])
         (plain "Mod+Shift+L" [(leaf "spawn" ["gtklock"])])
         (plain "Mod+Space" [(leaf "spawn" ["launcher" "-show" "drun"])])
         (plain "XF86Keyboard" [(leaf "spawn" ["launcher" "-show" "calc"])])
@@ -240,7 +240,6 @@ in
       (leaf "spawn-at-startup" ["as-service" "ags"])
       (leaf "spawn-at-startup" ["${e pkgs.swaybg}" "-i" "${./wall.jpg}"])
       (leaf "spawn-at-startup" ["${e pkgs.wlsunset}" "-l" "50.0" "-L" "19.94"])
-      (leaf "spawn-at-startup" ["foot" "--server"])
       (leaf "screenshot-path" "~/pics/ss/ss%Y-%m-%d %H-%M-%S.png")
       (flag "environment")
       (flag "prefer-no-csd")

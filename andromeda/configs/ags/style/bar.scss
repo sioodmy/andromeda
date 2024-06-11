@@ -10,7 +10,7 @@
 .bar .system-info {
   margin: 0 0.2rem;
 
-  &>box {
+  & > box {
     margin: 0 0.3rem;
   }
 
@@ -25,13 +25,13 @@
 }
 
 .bar .music {
-  &>box {
+  & > box {
     @include animate;
     border-radius: $round2;
     margin: 0.4rem;
   }
 
-  &.active>box {
+  &.active > box {
     background: $surface1;
   }
 

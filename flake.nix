@@ -17,6 +17,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-parts.follows = "flake-parts";
     };
+    treefmt-nix = {
+      url = "github:numtide/treefmt-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ {flake-parts, ...}:
@@ -41,7 +45,24 @@
             nucleus
           '';
         };
-        formatter = pkgs.alejandra;
+        treefmt = {
+          projectRootFile = "flake.nix";
+
+          programs = {
+            alejandra.enable = true;
+            prettier.enable = true;
+            stylua.enable = true;
+            deadnix.enable = false;
+            shellcheck.enable = true;
+            shfmt = {
+              enable = true;
+              indent_size = 4;
+            };
+          };
+        };
       };
+      imports = [
+        inputs.treefmt-nix.flakeModule
+      ];
     };
 }

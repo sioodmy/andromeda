@@ -7,17 +7,14 @@ import PopupWindow from "../../utils/popup_window.js";
 
 // connections
 Audio.connect("speaker-changed", () =>
-  Audio.speaker.connect(
-    "changed",
-    () => {
-      if (!App.getWindow("system-menu")?.visible) {
-        Indicators.speaker();
-      }
-    },
-  ));
-Audio.connect(
-  "microphone-changed",
-  () => Audio.microphone.connect("changed", () => Indicators.mic()),
+  Audio.speaker.connect("changed", () => {
+    if (!App.getWindow("system-menu")?.visible) {
+      Indicators.speaker();
+    }
+  }),
+);
+Audio.connect("microphone-changed", () =>
+  Audio.microphone.connect("changed", () => Indicators.mic()),
 );
 
 Brightness.connect("screen-changed", () => {
@@ -37,7 +34,7 @@ const child = () =>
     children: [
       Widget.Icon().hook(
         Indicators,
-        (self, props) => self.icon = props?.icon ?? "",
+        (self, props) => (self.icon = props?.icon ?? ""),
       ),
       Widget.Box({
         hexpand: true,
@@ -47,23 +44,18 @@ const child = () =>
             hexpand: false,
             truncate: "end",
             max_width_chars: 24,
-          })
-            .hook(
-              Indicators,
-              (self, props) => self.label = props?.label ?? "",
-            ),
+          }).hook(
+            Indicators,
+            (self, props) => (self.label = props?.label ?? ""),
+          ),
 
           Widget.ProgressBar({
             hexpand: true,
             vertical: false,
-          })
-            .hook(
-              Indicators,
-              (self, props) => {
-                self.value = props?.value ?? 0;
-                self.visible = props?.showProgress ?? false;
-              },
-            ),
+          }).hook(Indicators, (self, props) => {
+            self.value = props?.value ?? 0;
+            self.visible = props?.showProgress ?? false;
+          }),
         ],
       }),
     ],
@@ -78,11 +70,9 @@ export default () =>
     click_through: true,
     anchor: ["bottom"],
     revealerSetup: (self) =>
-      self
-        .hook(Indicators, (revealer, _, visible) => {
-          revealer.reveal_child = visible;
-        }),
-  })
-    .hook(Indicators, (win, _, visible) => {
-      win.visible = visible;
-    });
+      self.hook(Indicators, (revealer, _, visible) => {
+        revealer.reveal_child = visible;
+      }),
+  }).hook(Indicators, (win, _, visible) => {
+    win.visible = visible;
+  });

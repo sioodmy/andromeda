@@ -15,7 +15,7 @@ button {
   all: unset;
   padding: 3rem;
 }
-#unlock-button label{
+#unlock-button label {
   color: transparent;
 }
 #message-box {
