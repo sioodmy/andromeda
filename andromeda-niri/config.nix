@@ -240,6 +240,7 @@ in
       (leaf "spawn-at-startup" ["as-service" "ags"])
       (leaf "spawn-at-startup" ["${e pkgs.swaybg}" "-i" "${./wall.jpg}"])
       (leaf "spawn-at-startup" ["${e pkgs.wlsunset}" "-l" "50.0" "-L" "19.94"])
+      (leaf "spawn-at-startup" ["swayidle"])
       (leaf "screenshot-path" "~/pics/ss/ss%Y-%m-%d %H-%M-%S.png")
       (flag "environment")
       (flag "prefer-no-csd")
