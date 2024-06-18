@@ -1,13 +1,5 @@
-# Seashell
+# Andromeda [WIP]
 
-My portable CLI workflow packaged without home-manager
+My desktop setup without home manager (because why not). It mainly uses wrapper-manager for everything and aims to be easily customizable with base16 color schemes.
 
-## Try it out!
-
-```bash
-$ nix develop github:sioodmy/seashell
-```
-
-# Configuration
-
-None, for now it's only my personal config with no extra configuration available
+Note that for now it's only my personal configuration, it can be used by other people that want to try my setup without conflicting with their existing configuration. However I do not plan to turn it into any kind of community framework like home-manager.

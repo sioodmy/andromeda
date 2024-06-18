@@ -61,6 +61,12 @@
           };
         };
       };
+      flake = {
+        nixosModules = rec {
+          andromeda = import ./module.nix inputs;
+          default = andromeda;
+        };
+      };
       imports = [
         inputs.treefmt-nix.flakeModule
       ];

@@ -58,7 +58,6 @@ in {
     nil
     rust-analyzer
     alejandra
-    nodePackages.bash-language-server
     nodePackages.vscode-css-languageserver-bin
     nodePackages.vscode-langservers-extracted
     nodePackages.typescript-language-server

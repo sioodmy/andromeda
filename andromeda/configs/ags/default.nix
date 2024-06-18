@@ -19,4 +19,7 @@
 in {
   basePackage = inputs.ags.packages.${pkgs.system}.ags;
   flags = ["--config" "${config}/config.js"];
+  renames = {
+    "ags" = "ags-wrapped";
+  };
 }

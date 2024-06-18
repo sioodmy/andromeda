@@ -237,7 +237,7 @@ in
         "XCURSOR_SIZE"
         "XDG_DATA_DIRS"
       ])
-      (leaf "spawn-at-startup" ["as-service" "ags"])
+      (leaf "spawn-at-startup" ["ags-wrapped"])
       (leaf "spawn-at-startup" ["${e pkgs.swaybg}" "-i" "${./wall.jpg}"])
       (leaf "spawn-at-startup" ["${e pkgs.wlsunset}" "-l" "50.0" "-L" "19.94"])
       (leaf "spawn-at-startup" ["swayidle"])
