@@ -1,10 +1,9 @@
 {
   pkgs,
   inputs,
-  config,
+  cfg,
   ...
 }: let
-  cfg = config.programs.andromeda;
   configs = import ./configs {inherit inputs pkgs cfg;};
 in
   inputs.wrapper-manager.lib.build {

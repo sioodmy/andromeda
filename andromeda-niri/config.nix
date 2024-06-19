@@ -1,9 +1,11 @@
 {
   inputs,
   pkgs,
+  cfg,
   ...
 }: let
   inherit (inputs.niri.lib.kdl) serialize plain leaf flag node;
+  inherit (cfg.theme.colors) accent;
   e = pkgs.lib.getExe;
   r = 8.0;
 in
@@ -57,7 +59,7 @@ in
         (leaf "gaps" 16)
         (plain "focus-ring" [
           (leaf "width" 2)
-          (leaf "active-color" "#f3b8e4")
+          (leaf "active-color" "#${accent}")
         ])
         (plain "border" [(flag "off")])
         (plain "preset-column-widths" [

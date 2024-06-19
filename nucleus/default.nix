@@ -1,11 +1,9 @@
 {
   pkgs,
   inputs,
-  config,
+  cfg,
   ...
 }: let
-  cfg = config.programs.andromeda;
-
   toml = pkgs.formats.toml {};
 
   starship-settings = import ./starship.nix;

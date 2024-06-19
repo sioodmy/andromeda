@@ -7,13 +7,12 @@ inputs: {
   inherit (pkgs.stdenv.hostPlatform) system;
   cfg = config.programs.andromeda;
 
-  nucleus = pkgs.callPackage ./nucleus {inherit pkgs inputs config;};
+  nucleus = pkgs.callPackage ./nucleus {inherit pkgs inputs cfg;};
 
   # my desktop
-  andromeda = pkgs.callPackage ./andromeda {inherit pkgs inputs config;};
-  andromeda-niri = pkgs.callPackage ./andromeda-niri {inherit pkgs inputs config;};
+  andromeda = pkgs.callPackage ./andromeda {inherit pkgs inputs cfg;};
+  andromeda-niri = pkgs.callPackage ./andromeda-niri {inherit pkgs inputs cfg;};
 
-  package = inputs.self.packages.${system}.default;
   inherit (lib) mkOption mkEnableOption types mkIf;
 in {
   options.programs.andromeda = {
@@ -29,6 +28,10 @@ in {
     theme = {
       colors = {
         # by default we use catppuccin frappe base16
+        accent = mkOption {
+          type = types.str;
+          default = "f4b8e4";
+        };
         base00 = mkOption {
           type = types.str;
           default = "303446";
