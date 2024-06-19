@@ -7,12 +7,25 @@ inputs: {
   inherit (pkgs.stdenv.hostPlatform) system;
   cfg = config.programs.andromeda;
 
+  nucleus = pkgs.callPackage ./nucleus {inherit pkgs inputs config;};
+
+  # my desktop
+  andromeda = pkgs.callPackage ./andromeda {inherit pkgs inputs config;};
+  andromeda-niri = pkgs.callPackage ./andromeda-niri {inherit pkgs inputs config;};
+
   package = inputs.self.packages.${system}.default;
   inherit (lib) mkOption mkEnableOption types mkIf;
 in {
-  imports = [./gtk];
   options.programs.andromeda = {
     enable = mkEnableOption "rice :3";
+    nucleus = mkOption {
+      type = types.package;
+      default = nucleus;
+    };
+    andromeda = mkOption {
+      type = types.package;
+      default = andromeda;
+    };
     theme = {
       colors = {
         # by default we use catppuccin frappe base16
@@ -84,6 +97,11 @@ in {
     };
   };
   config = mkIf cfg.enable {
-    environment.systemPackages = with inputs.self.packages.${pkgs.system}; [andromeda andromeda-niri nucleus];
+    environment.systemPackages = [
+      andromeda
+      andromeda-niri
+      cfg.nucleus
+    ];
+    home-manager.sharedModules = [inputs.self.homeManagerModules.andromeda];
   };
 }

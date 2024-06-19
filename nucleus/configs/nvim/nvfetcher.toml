@@ -13,3 +13,7 @@ fetch.github="nvim-orgmode/telescope-orgmode.nvim"
 [nvim-colorizer]
 src.git="https://github.com/NvChad/nvim-colorizer.lua"
 fetch.github="NvChad/nvim-colorizer.lua"
+
+[nvim-base-16]
+src.git = "https://github.com/RRethy/nvim-base16"
+fetch.github = "RRethy/nvim-base16"

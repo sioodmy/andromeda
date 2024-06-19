@@ -27,15 +27,6 @@
     flake-parts.lib.mkFlake {inherit inputs;} {
       systems = ["x86_64-linux"];
       perSystem = {pkgs, ...}: {
-        packages = rec {
-          # cli
-          nucleus = pkgs.callPackage ./nucleus {inherit pkgs inputs;};
-
-          # my desktop
-          andromeda = pkgs.callPackage ./andromeda {inherit pkgs inputs;};
-          andromeda-niri = pkgs.callPackage ./andromeda-niri {inherit pkgs inputs;};
-          default = nucleus;
-        };
         devShells.default = pkgs.mkShell {
           packages = [
             inputs.self.packages.${pkgs.system}.default
@@ -64,6 +55,14 @@
       flake = {
         nixosModules = rec {
           andromeda = import ./module.nix inputs;
+          default = andromeda;
+        };
+        homeManagerModules = rec {
+          andromeda = {
+            imports = [
+              ./gtk
+            ];
+          };
           default = andromeda;
         };
       };

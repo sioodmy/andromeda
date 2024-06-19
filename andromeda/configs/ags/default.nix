@@ -1,6 +1,7 @@
 {
   inputs,
   pkgs,
+  cfg,
   ...
 }: let
   config = pkgs.stdenv.mkDerivation {

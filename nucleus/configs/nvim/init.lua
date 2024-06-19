@@ -1,13 +1,7 @@
 vim.loader.enable()
 
-require("catppuccin").setup({
-	flavour = "frappe",
-})
-vim.cmd.colorscheme("catppuccin")
-
 vim.opt.termguicolors = true
 require("bufferline").setup({
-	highlights = require("catppuccin.groups.integrations.bufferline").get(),
 	options = {
 		right_mouse_command = nil,
 		middle_mouse_command = "bdelete! %d",
@@ -23,7 +17,6 @@ require("ibl").setup()
 
 require("lualine").setup({
 	options = {
-		theme = "catppuccin",
 		component_separators = { left = "", right = "" },
 		section_separators = { left = "", right = "" },
 	},

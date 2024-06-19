@@ -1,15 +1,18 @@
 {
   pkgs,
   inputs,
+  config,
   ...
 }: let
+  cfg = config.programs.andromeda;
+
   toml = pkgs.formats.toml {};
 
   starship-settings = import ./starship.nix;
 
-  nuconfig = import ./config.nix {inherit pkgs;};
+  nuconfig = import ./config.nix {inherit pkgs cfg;};
   aliases = import ./aliases.nix {inherit pkgs;};
-  configs = import ./configs {inherit inputs pkgs;};
+  configs = import ./configs {inherit inputs pkgs cfg;};
 
   packages = import ./packages.nix {inherit pkgs;};
 

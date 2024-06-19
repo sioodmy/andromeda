@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  cfg,
+  ...
+}: {
   basePackage = pkgs.rofi-wayland.override {
     plugins = with pkgs; [
       (rofi-calc.override {
