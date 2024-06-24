@@ -32,31 +32,12 @@ const child = () =>
     className: "osd",
 
     children: [
-      Widget.Icon().hook(
-        Indicators,
-        (self, props) => (self.icon = props?.icon ?? ""),
-      ),
-      Widget.Box({
+      Widget.ProgressBar({
         hexpand: true,
-        vertical: true,
-        children: [
-          Widget.Label({
-            hexpand: false,
-            truncate: "end",
-            max_width_chars: 24,
-          }).hook(
-            Indicators,
-            (self, props) => (self.label = props?.label ?? ""),
-          ),
-
-          Widget.ProgressBar({
-            hexpand: true,
-            vertical: false,
-          }).hook(Indicators, (self, props) => {
-            self.value = props?.value ?? 0;
-            self.visible = props?.showProgress ?? false;
-          }),
-        ],
+        vertical: false,
+      }).hook(Indicators, (self, props) => {
+        self.value = props?.value ?? 0;
+        self.visible = props?.showProgress ?? false;
       }),
     ],
   });
@@ -68,7 +49,7 @@ export default () =>
     layer: "overlay",
     child: child(),
     click_through: true,
-    anchor: ["bottom"],
+    anchor: ["top"],
     revealerSetup: (self) =>
       self.hook(Indicators, (revealer, _, visible) => {
         revealer.reveal_child = visible;

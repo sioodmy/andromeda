@@ -1,5 +1,8 @@
 .bar {
-  background: transparent;
+  background: $base;
+  margin: 0px 12px 0px 12px;
+  padding: 0px 20px 5px;
+  border-radius: 0px 0px 15px 15px;
   min-height: 32px;
 
   .module {
@@ -7,7 +10,14 @@
   }
 }
 
-.bar .system-info {
+.date {
+  font-weight: 600;
+  margin-left: 20px;
+  font-size: 1.3rem;
+}
+
+.bar .system-info,
+.date {
   margin: 0 0.2rem;
 
   & > box {

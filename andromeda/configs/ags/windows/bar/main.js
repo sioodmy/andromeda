@@ -27,31 +27,24 @@ const Start = () =>
     ],
   });
 
-const Center = () =>
+const Elements = () =>
   Widget.Box({
-    children: [Date()],
-  });
+    hexpand: false,
+    hpack: "center",
 
-const End = () =>
-  Widget.Box({
-    hexpand: true,
-    hpack: "end",
-
-    children: [CpuRam(), SystemInfo()],
+    children: [CpuRam(), Date(), SystemInfo()],
   });
 
 export default () =>
   Widget.Window({
     monitor: 0,
     name: `bar`,
-    anchor: ["top", "left", "right"],
+    anchor: ["top"],
     exclusivity: "exclusive",
 
-    child: Widget.CenterBox({
+    child: Widget.Box({
       className: "bar",
 
-      startWidget: Start(),
-      centerWidget: Center(),
-      endWidget: End(),
+      children: [Elements()],
     }),
   });
