@@ -1,7 +1,13 @@
 {pkgs, ...}: let
   getExe = pkgs.lib.getExe;
 in
-  with pkgs; {
+  with pkgs; rec {
+    l = "${getExe eza} --icons";
+    e = "${getExe eza} --icons -lha --git";
+
+    ls = l;
+    la = e;
+
     m = "mkdir";
 
     g = "git";
@@ -9,6 +15,9 @@ in
 
     cat = "${getExe bat}";
     fzf = "${getExe skim}";
+
+    cp = "cp -ivr";
+    mv = "mv -iv";
 
     kys = "shutdown now";
 

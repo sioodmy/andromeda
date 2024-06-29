@@ -1,8 +1,9 @@
 {pkgs, ...}:
 with pkgs; [
-  # needed for nushell completions
-  fish
-  carapace
+  # better cd
+  zoxide
+  # drop in replacement for fzf
+  skim
 
   # Tbh should be preinstalled
   gnumake
