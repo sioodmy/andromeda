@@ -6,11 +6,15 @@ setopt HIST_FIND_NO_DUPS
 setopt HIST_IGNORE_ALL_DUPS
 HISTFILE=~/.cache/zsh/history
 
+export AUTO_NOTIFY_THRESHOLD=40
+export AUTO_NOTIFY_EXPIRE_TIME=5000
+
+
 # Basic auto/tab complete:
 autoload -U compinit
 zstyle ':completion:*' menu select
 zmodload zsh/complist
-compinit
+zsh-defer compinit
 _comp_options+=(globdots)		# Include hidden files.
 
 # vi mode

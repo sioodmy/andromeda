@@ -60,5 +60,10 @@
       url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    zsh-auto-notify = {
+      url = "github:MichaelAquilina/zsh-auto-notify";
+      flake = false;
+    };
   };
 }

@@ -13,7 +13,7 @@
 
   packages = import ./packages.nix {inherit pkgs;};
 
-  zconfig = import ./zsh {inherit pkgs aliasesStr;};
+  zconfig = import ./zsh {inherit pkgs inputs aliasesStr;};
 
   aliasesStr =
     pkgs.lib.concatStringsSep "\n"
