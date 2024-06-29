@@ -1,5 +1,9 @@
 {pkgs, ...}:
 with pkgs; [
+  # needed for nushell completions
+  fish
+  carapace
+
   # Tbh should be preinstalled
   gnumake
   # Runs programs without installing them

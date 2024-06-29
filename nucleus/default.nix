@@ -8,8 +8,9 @@
 
   starship-settings = import ./starship.nix;
 
-  nuconfig = import ./config.nix {inherit pkgs cfg;};
+  colors = import ./nushell/colors.nix {inherit cfg;};
   aliases = import ./aliases.nix {inherit pkgs;};
+  nuconfig = builtins.readFile ./nushell/config.nu;
   configs = import ./configs {inherit inputs pkgs cfg;};
 
   packages = import ./packages.nix {inherit pkgs;};
@@ -29,7 +30,7 @@ in
               pathAdd = packages;
               flags = [
                 "--config"
-                (pkgs.writeText "config.nu" (nuconfig + aliasesStr))
+                (pkgs.writeText "config.nu" (colors + aliasesStr + nuconfig))
                 # we don't really need it
                 "--env-config"
                 "/dev/null"
