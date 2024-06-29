@@ -440,7 +440,8 @@
         "niri": "niri",
         "nixpkgs": "nixpkgs_3",
         "treefmt-nix": "treefmt-nix",
-        "wrapper-manager": "wrapper-manager"
+        "wrapper-manager": "wrapper-manager",
+        "zsh-auto-notify": "zsh-auto-notify"
       }
     },
     "systems": {
@@ -525,6 +526,22 @@
       "original": {
         "owner": "viperML",
         "repo": "wrapper-manager",
+        "type": "github"
+      }
+    },
+    "zsh-auto-notify": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1715595158,
+        "narHash": "sha256-U4XJymu2SDzBAXTp88utcQRwYnOUY4RVXYrtGFbh3dM=",
+        "owner": "MichaelAquilina",
+        "repo": "zsh-auto-notify",
+        "rev": "837b81de92cbf12d45d638b77f1ecd6a942266fe",
+        "type": "github"
+      },
+      "original": {
+        "owner": "MichaelAquilina",
+        "repo": "zsh-auto-notify",
         "type": "github"
       }
     }

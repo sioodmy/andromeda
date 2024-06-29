@@ -5,6 +5,16 @@
     flake-parts.lib.mkFlake {inherit inputs;} {
       systems = ["x86_64-linux"];
       perSystem = {pkgs, ...}: {
+        packages = rec {
+          nucleus = import ./nucleus/pkg.nix {inherit pkgs inputs;};
+          default = nucleus;
+        };
+        devShells.default = pkgs.mkShell {
+          buildInputs = [inputs.self.packages.${pkgs.system}.nucleus];
+          shellHook = ''
+            nucleus
+          '';
+        };
         treefmt = {
           projectRootFile = "flake.nix";
 
