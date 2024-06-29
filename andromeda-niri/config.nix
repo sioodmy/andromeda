@@ -221,8 +221,8 @@ in
         (plain "Mod+Shift+Equal" [(leaf "set-window-height" "+10%")])
 
         (plain "Mod+Shift+S" [(flag "screenshot")])
-        (plain "Mod+Shift+Print" [(flag "screenshot-screen")])
-        (plain "Mod+Print" [(flag "screenshot-window")])
+        (plain "Mod+Shift+Print" [(flag "screenshot-window")])
+        (plain "Mod+Print" [(flag "screenshot-screen")])
 
         (plain "Mod+Shift+P" [(flag "power-off-monitors")])
       ])
