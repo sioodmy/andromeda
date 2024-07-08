@@ -13,6 +13,8 @@ in
     g = "git";
     n = "nix";
 
+    ytmp3 = "yt-dlp -x --embed-metadata --audio-quality 0 --audio-format mp3";
+
     cat = "${getExe bat}";
     fzf = "${getExe skim}";
 
