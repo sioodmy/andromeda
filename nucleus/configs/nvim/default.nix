@@ -50,6 +50,7 @@
         telescope-nvim
         harpoon
         alpha-nvim
+        zen-mode-nvim
 
         # Language support
         nvim-lspconfig

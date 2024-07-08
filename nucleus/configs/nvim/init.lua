@@ -36,7 +36,7 @@ dashboard.section.footer.opts.hl = "Keyword"
 
 dashboard.config.opts.noautocmd = true
 
-vim.cmd([[autocmd User AlphaReady echo 'ready']])
+vim.cmd([[autocmd User AlphaReady set showtabline=0 | autocmd BufUnload <buffer> set showtabline=2]])
 
 alpha.setup(dashboard.config)
 
@@ -90,6 +90,7 @@ cmp.setup({
 		{ name = "nvim_lsp", keyword_length = 1 },
 		{ name = "buffer", keyword_length = 3 },
 		{ name = "luasnip", keyword_length = 2 },
+		{ name = "path", option = { trailing_slash = true } },
 		{ name = "treesitter" },
 		{ name = "orgmode" },
 	}),
@@ -158,6 +159,7 @@ require("nvim-treesitter.configs").setup({
 	highlight = {
 		enable = true,
 	},
+	additional_vim_regex_highlighting = false,
 })
 
 vim.o.timeout = true
