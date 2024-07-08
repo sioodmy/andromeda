@@ -29,6 +29,9 @@ nnoremap <leader>w <cmd>update <cr>
 nnoremap <C-d> <C-d>zz
 nnoremap <C-u> <C-u>zz
 
+nnoremap <M-h> <cmd>bprevious<cr>
+nnoremap <M-l> <cmd>bnext<cr>
+
 xnoremap <leader>p "\"_dP
 
 " Autoformat on save 

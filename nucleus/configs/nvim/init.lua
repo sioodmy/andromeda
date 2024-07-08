@@ -11,6 +11,35 @@ require("bufferline").setup({
 	},
 })
 
+local alpha = require("alpha")
+local dashboard = require("alpha.themes.dashboard")
+dashboard.section.header.val = {
+	[[⠀⠀⠀⠀⠀⠀⢀⡤⣤⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⡀⠀⠀⠀⠀⠀⠀]],
+	[[⠀⠀⠀⠀⠀⢀⡏⠀⠀⠈⠳⣄⠀⠀⠀⠀⠀⣀⠴⠋⠉⠉⡆⠀⠀⠀⠀⠀]],
+	[[⠀⠀⠀⠀⠀⢸⠀⠀⠀⠀⠀⠈⠉⠉⠙⠓⠚⠁⠀⠀⠀⠀⣿⠀⠀⠀⠀⠀]],
+	[[⠀⠀⠀⠀⢀⠞⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠹⣄⠀⠀⠀⠀]],
+	[[⠀⠀⠀⠀⡞⠀⠀⠀⠀⠀⠶⠀⠀⠀⠀⠀⠀⠦⠀⠀⠀⠀⠀⠸⡆⠀⠀⠀]],
+	[[⢠⣤⣶⣾⣧⣤⣤⣀⡀⠀⠀⠀⠀⠈⠀⠀⠀⢀⡤⠴⠶⠤⢤⡀⣧⣀⣀⠀]],
+	[[⠻⠶⣾⠁⠀⠀⠀⠀⠙⣆⠀⠀⠀⠀⠀⠀⣰⠋⠀⠀⠀⠀⠀⢹⣿⣭⣽⠇]],
+	[[⠀⠀⠙⠤⠴⢤⡤⠤⠤⠋⠉⠉⠉⠉⠉⠉⠉⠳⠖⠦⠤⠶⠦⠞⠁⠀⠀ ]],
+}
+dashboard.section.header.opts.hl = "Keyword"
+dashboard.section.buttons.val = {
+	dashboard.button("e", "  New file", ":ene <BAR> startinsert <CR>"),
+	dashboard.button("f", "  Find file", ":Telescope find_files <CR>"),
+	dashboard.button("g", "󰺄  Live grep", ":Telescope live_grep <CR>"),
+	dashboard.button("q", "󰅚  Quit NVIM", ":qa<CR>"),
+}
+
+dashboard.section.footer.val = "meoww :3"
+dashboard.section.footer.opts.hl = "Keyword"
+
+dashboard.config.opts.noautocmd = true
+
+vim.cmd([[autocmd User AlphaReady echo 'ready']])
+
+alpha.setup(dashboard.config)
+
 require("gitsigns").setup({})
 
 require("ibl").setup()
@@ -142,29 +171,23 @@ wk.register({
 	["<leader>."] = { vim.lsp.buf.hover, "LSP hover" },
 })
 
+local telescope = require("telescope")
+telescope.setup({})
+telescope.load_extension("harpoon")
+
 orgmode.setup({
 	org_agenda_files = { "~/docs/notes/*.org" },
 	org_default_notes_file = "~/docs/notes/refile.org",
 })
 require("org-bullets").setup()
+require("org-roam").setup({
+	directory = "~/docs/notes",
+})
 
 require("Comment").setup()
 
 vim.filetype.add({
 	filename = {
 		[".envrc"] = "bash",
-	},
-})
-
-local telescope = require("telescope")
-telescope.setup({})
-telescope.load_extension("orgmode")
-telescope.load_extension("harpoon")
-
-require("colorizer").setup({
-	filetypes = { "*" },
-	user_default_options = {
-		rgb_fn = false,
-		hsl_fn = false,
 	},
 })

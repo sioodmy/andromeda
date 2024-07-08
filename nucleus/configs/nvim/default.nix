@@ -48,6 +48,7 @@
         which-key-nvim
         telescope-nvim
         harpoon
+        alpha-nvim
 
         # Language support
         nvim-lspconfig

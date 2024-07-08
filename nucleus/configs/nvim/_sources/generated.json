@@ -39,26 +39,6 @@
         },
         "version": "6ac181b5733518040a33017dde654059cd771b7c"
     },
-    "nvim-colorizer": {
-        "cargoLocks": null,
-        "date": "2023-12-23",
-        "extract": null,
-        "name": "nvim-colorizer",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "NvChad",
-            "repo": "nvim-colorizer.lua",
-            "rev": "85855b38011114929f4058efc97af1059ab3e41d",
-            "sha256": "sha256-oKvFN2K+ASlPNwj2rhptR/ErYgo6XKBPhXSZotDdCP0=",
-            "type": "github"
-        },
-        "version": "85855b38011114929f4058efc97af1059ab3e41d"
-    },
     "org-bullets": {
         "cargoLocks": null,
         "date": "2024-02-21",
@@ -79,9 +59,29 @@
         },
         "version": "3623e86e0fa6d07f45042f7207fc333c014bf167"
     },
+    "org-roam": {
+        "cargoLocks": null,
+        "date": "2024-06-23",
+        "extract": null,
+        "name": "org-roam",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "chipsenkbeil",
+            "repo": "org-roam.nvim",
+            "rev": "45153562e7bfe806d84747d6518cad714c63ca2e",
+            "sha256": "sha256-7s7nePlg/lF/JplR3qvY+ZT1B/wUG6TymCis4OMBBQ8=",
+            "type": "github"
+        },
+        "version": "45153562e7bfe806d84747d6518cad714c63ca2e"
+    },
     "telescope-orgmode": {
         "cargoLocks": null,
-        "date": "2024-05-24",
+        "date": "2024-07-07",
         "extract": null,
         "name": "telescope-orgmode",
         "passthru": null,
@@ -93,10 +93,10 @@
             "name": null,
             "owner": "nvim-orgmode",
             "repo": "telescope-orgmode.nvim",
-            "rev": "a8478496911e378868f44bd9fd5fd5ce5eeec57b",
-            "sha256": "sha256-08QCcMm10XiCMkQfOdpAESck3k/O1PINqRjD+jwLusc=",
+            "rev": "b1d0fab19fafeb7de0fd78b16d4c023021c01765",
+            "sha256": "sha256-46R9HO6kmGmWzBXAiL+SeR44uj0P716vwOfUTI8ec7E=",
             "type": "github"
         },
-        "version": "a8478496911e378868f44bd9fd5fd5ce5eeec57b"
+        "version": "b1d0fab19fafeb7de0fd78b16d4c023021c01765"
     }
 }
