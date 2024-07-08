@@ -1,3 +1,5 @@
+language en_US.utf8
+
 " leader key
 let mapleader = "\<Space>"
 let maplocalleader = "\<Space>"

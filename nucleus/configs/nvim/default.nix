@@ -1,4 +1,5 @@
 {
+  inputs,
   pkgs,
   cfg,
   ...
@@ -67,7 +68,7 @@
       ]);
   };
 in {
-  basePackage = pkgs.wrapNeovimUnstable pkgs.neovim-unwrapped neovimConfig;
+  basePackage = pkgs.wrapNeovimUnstable inputs.neovim-nightly-overlay.packages.${pkgs.system}.default neovimConfig;
   # mostly LSP related packages
   pathAdd = with pkgs; [
     gopls
