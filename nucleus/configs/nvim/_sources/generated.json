@@ -1,4 +1,24 @@
 {
+    "incline": {
+        "cargoLocks": null,
+        "date": "2024-05-16",
+        "extract": null,
+        "name": "incline",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "b0o",
+            "repo": "incline.nvim",
+            "rev": "16fc9c073e3ea4175b66ad94375df6d73fc114c0",
+            "sha256": "sha256-5DoIvIdAZV7ZgmQO2XmbM3G+nNn4tAumsShoN3rDGrs=",
+            "type": "github"
+        },
+        "version": "16fc9c073e3ea4175b66ad94375df6d73fc114c0"
+    },
     "neotree": {
         "cargoLocks": null,
         "date": "2024-06-11",
@@ -59,11 +79,11 @@
         },
         "version": "3623e86e0fa6d07f45042f7207fc333c014bf167"
     },
-    "org-roam": {
+    "recession": {
         "cargoLocks": null,
-        "date": "2024-06-23",
+        "date": "2024-07-01",
         "extract": null,
-        "name": "org-roam",
+        "name": "recession",
         "passthru": null,
         "pinned": false,
         "src": {
@@ -71,13 +91,33 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "owner": "chipsenkbeil",
-            "repo": "org-roam.nvim",
-            "rev": "45153562e7bfe806d84747d6518cad714c63ca2e",
-            "sha256": "sha256-7s7nePlg/lF/JplR3qvY+ZT1B/wUG6TymCis4OMBBQ8=",
+            "owner": "stevearc",
+            "repo": "resession.nvim",
+            "rev": "e087ebeef81df25a12fcc4ec067ca73e2bb54c4a",
+            "sha256": "sha256-Id7rJwxvH81TnBKHAsPuP8nmu7SS6b5PiLoE2UzeRX0=",
             "type": "github"
         },
-        "version": "45153562e7bfe806d84747d6518cad714c63ca2e"
+        "version": "e087ebeef81df25a12fcc4ec067ca73e2bb54c4a"
+    },
+    "scope": {
+        "cargoLocks": null,
+        "date": "2024-03-31",
+        "extract": null,
+        "name": "scope",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "tiagovla",
+            "repo": "scope.nvim",
+            "rev": "86a0f5b594b08b2ad65f470ffdee81654942b6ac",
+            "sha256": "sha256-8Bd1DI6nuUxkTCx0wCfWKHdi6UXQNuDygj5UuSGypLs=",
+            "type": "github"
+        },
+        "version": "86a0f5b594b08b2ad65f470ffdee81654942b6ac"
     },
     "telescope-orgmode": {
         "cargoLocks": null,

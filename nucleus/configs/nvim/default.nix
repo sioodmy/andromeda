@@ -35,7 +35,6 @@
     plugins =
       (builtins.attrValues nvfetcher)
       ++ (with pkgs.vimPlugins; [
-        bufferline-nvim
         lualine-nvim
         nvim-web-devicons
         gitsigns-nvim
@@ -51,6 +50,12 @@
         harpoon
         alpha-nvim
         zen-mode-nvim
+        sniprun
+        vim-table-mode
+        trouble-nvim
+        bufferline-nvim
+        fidget-nvim
+        nvim-notify
 
         # Language support
         nvim-lspconfig
@@ -77,8 +82,8 @@ in {
     nil
     rust-analyzer
     alejandra
-    nodePackages.vscode-css-languageserver-bin
-    nodePackages.vscode-langservers-extracted
+    vscode-langservers-extracted
+    gleam
     nodePackages.typescript-language-server
     nodePackages.prettier
     shellcheck

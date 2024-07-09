@@ -1,6 +1,11 @@
 vim.loader.enable()
 
 vim.opt.termguicolors = true
+
+require("incline").setup({})
+require("fidget").setup({})
+require("scope").setup({})
+
 require("bufferline").setup({
 	options = {
 		right_mouse_command = nil,
@@ -9,6 +14,53 @@ require("bufferline").setup({
 			style = " ",
 		},
 	},
+})
+
+local resession = require("resession")
+
+resession.setup({
+	autosave = {
+		enabled = true,
+		interval = 60,
+		notify = true,
+	},
+	buf_filter = function(bufnr)
+		local buftype = vim.bo[bufnr].buftype
+		if buftype == "help" then
+			return true
+		end
+		if buftype ~= "" and buftype ~= "acwrite" then
+			return false
+		end
+		if vim.api.nvim_buf_get_name(bufnr) == "" then
+			return false
+		end
+		return true
+	end,
+	extensions = { scope = {} },
+})
+
+local function get_session_name()
+	local name = vim.fn.getcwd()
+	local branch = vim.trim(vim.fn.system("git branch --show-current"))
+	if vim.v.shell_error == 0 then
+		return name .. branch
+	else
+		return name
+	end
+end
+vim.api.nvim_create_autocmd("VimEnter", {
+	callback = function()
+		-- Only load the session if nvim was started with no args
+		if vim.fn.argc(-1) == 0 then
+			resession.load(get_session_name(), { dir = "dirsession", silence_errors = true })
+		end
+	end,
+})
+vim.api.nvim_create_autocmd("VimLeavePre", {
+	callback = function()
+		resession.save(get_session_name(), { dir = "dirsession", notify = false })
+	end,
 })
 
 local alpha = require("alpha")
@@ -126,6 +178,7 @@ nvim_lsp.html.setup({
 })
 nvim_lsp.nixd.setup({})
 nvim_lsp.tsserver.setup({})
+nvim_lsp.gleam.setup({})
 
 local on_attach = function(client)
 	require("completion").on_attach(client)
@@ -153,14 +206,14 @@ nvim_lsp.rust_analyzer.setup({
 	},
 })
 
-local orgmode = require("orgmode")
-
 require("nvim-treesitter.configs").setup({
 	highlight = {
 		enable = true,
 	},
 	additional_vim_regex_highlighting = false,
 })
+
+require("trouble").setup({})
 
 vim.o.timeout = true
 vim.o.timeoutlen = 500
@@ -176,15 +229,14 @@ wk.register({
 local telescope = require("telescope")
 telescope.setup({})
 telescope.load_extension("harpoon")
+telescope.load_extension("scope")
 
+local orgmode = require("orgmode")
 orgmode.setup({
 	org_agenda_files = { "~/docs/notes/*.org" },
 	org_default_notes_file = "~/docs/notes/refile.org",
 })
 require("org-bullets").setup()
-require("org-roam").setup({
-	directory = "~/docs/notes",
-})
 
 require("Comment").setup()
 

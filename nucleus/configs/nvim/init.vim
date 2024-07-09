@@ -5,6 +5,8 @@ let mapleader = "\<Space>"
 let maplocalleader = "\<Space>"
 nnoremap <Space> <Nop>
 
+" Global statusline
+set laststatus=3
 
 " 4 spaces tabs and indentation
 set smartindent
