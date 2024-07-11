@@ -105,6 +105,7 @@ in {
       andromeda-niri
       cfg.nucleus
     ];
-    home-manager.sharedModules = [inputs.self.homeManagerModules.andromeda];
   };
+
+  imports = [./homix/gtk];
 }

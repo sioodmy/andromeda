@@ -119,19 +119,29 @@ local luasnip = require("luasnip")
 cmp.setup({
 	mapping = cmp.mapping.preset.insert({
 		["<Tab>"] = cmp.mapping(function(fallback)
-			if cmp.visible() then
+			if vim.fn.pumvisible() == 1 then
+				feedkey("<C-n>", "n")
+			elseif cmp.visible() then
 				cmp.select_next_item()
-				return
+			else
+				fallback()
 			end
-			fallback()
-		end, { "i", "c" }),
+		end, {
+			"i",
+		}),
+		["<CR>"] = cmp.mapping.confirm({ select = true }),
+
 		["<S-Tab>"] = cmp.mapping(function(fallback)
-			if cmp.visible() then
+			if vim.fn.pumvisible() == 1 then
+				feedkey("<C-p>", "n")
+			elseif cmp.visible() then
 				cmp.select_prev_item()
-				return
+			else
+				fallback()
 			end
-			fallback()
-		end, { "i", "c" }),
+		end, {
+			"i",
+		}),
 	}),
 	snippet = {
 		expand = function(args)
@@ -178,6 +188,8 @@ nvim_lsp.html.setup({
 })
 nvim_lsp.nixd.setup({})
 nvim_lsp.tsserver.setup({})
+nvim_lsp.cssls.setup({})
+nvim_lsp.bashls.setup({})
 nvim_lsp.gleam.setup({})
 
 local on_attach = function(client)
@@ -234,7 +246,7 @@ telescope.load_extension("scope")
 local orgmode = require("orgmode")
 orgmode.setup({
 	org_agenda_files = { "~/docs/notes/*.org" },
-	org_default_notes_file = "~/docs/notes/refile.org",
+	org_default_notes_file = "~/docs/notes/Refile.org",
 })
 require("org-bullets").setup()
 

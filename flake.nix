@@ -36,14 +36,6 @@
           andromeda = import ./module.nix inputs;
           default = andromeda;
         };
-        homeManagerModules = rec {
-          andromeda = {
-            imports = [
-              ./gtk
-            ];
-          };
-          default = andromeda;
-        };
       };
       imports = [
         inputs.treefmt-nix.flakeModule

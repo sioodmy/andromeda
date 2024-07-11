@@ -83,6 +83,7 @@ in {
     rust-analyzer
     alejandra
     vscode-langservers-extracted
+    bash-language-server
     gleam
     nodePackages.typescript-language-server
     nodePackages.prettier

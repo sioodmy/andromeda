@@ -8,6 +8,10 @@ nnoremap <Space> <Nop>
 " Global statusline
 set laststatus=3
 
+" For orgmode links
+set conceallevel=2
+set concealcursor=nc
+
 " 4 spaces tabs and indentation
 set smartindent
 set expandtab
