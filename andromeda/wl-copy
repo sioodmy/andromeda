@@ -1,0 +1,15 @@
+pkgs.writeShellScriptBin "infoscript" ''
+  #!/bin/sh
+
+  VOL="$(${pkgs.pamixer}/bin/pamixer --get-volume)"
+  BAT_TEXT=""
+
+  if [[ -d /sys/class/power_supply/BAT0 ]]; then
+      BAT="$(cat /sys/class/power_supply/BAT0/capacity)"
+      BAT_STATUS="$(cat /sys/class/power_supply/BAT0/status)"
+      BAT_TEXT="Battery is at <b>$\{BAT}%</b> ($\{BAT_STATUS})\n"
+  fi
+
+  ${pkgs.libnotify}/bin/notify-send -t 3000 "$(date +%H:%M)" "$(date +"%a, <b>%d.%m</b>")\n$\{BAT_TEXT}Volume <b>$\{VOL}%</b>"
+
+''

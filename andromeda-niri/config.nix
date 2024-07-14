@@ -135,6 +135,7 @@ in
         (plain "Mod+Space" [(leaf "spawn" ["launcher" "-show" "drun"])])
         (plain "XF86Keyboard" [(leaf "spawn" ["launcher" "-show" "calc"])])
         (plain "XF86Favorites" [(leaf "spawn" ["launcher" "-show" "emoji"])])
+        (plain "XF86Tools" [(leaf "spawn" ["infoscript"])])
 
         (plain "XF86AudioRaiseVolume" [(leaf "spawn" ["pamixer" "-i" "5"])])
         (plain "XF86AudioLowerVolume" [(leaf "spawn" ["pamixer" "-d" "5"])])
@@ -239,7 +240,7 @@ in
         "XCURSOR_SIZE"
         "XDG_DATA_DIRS"
       ])
-      (leaf "spawn-at-startup" ["ags-wrapped"])
+      (leaf "spawn-at-startup" ["mako-wrapped"])
       (leaf "spawn-at-startup" ["${e pkgs.swaybg}" "-i" "${./wall.jpg}"])
       (leaf "spawn-at-startup" ["${e pkgs.wlsunset}" "-l" "50.0" "-L" "19.94"])
       (leaf "spawn-at-startup" ["${e pkgs.sway-audio-idle-inhibit}"])

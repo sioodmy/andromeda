@@ -1,0 +1,35 @@
+{
+  pkgs,
+  cfg,
+  ...
+}: {
+  basePackage = pkgs.mako;
+  flags = with cfg.theme.colors; [
+    "--font"
+    "Lexend 11"
+
+    "--border-radius"
+    "8"
+
+    "--padding"
+    "8"
+
+    "--border-size"
+    "5"
+
+    "--background-color"
+    "#${base02}"
+
+    "--border-color"
+    "#${base03}"
+
+    "--text-color"
+    "#${base05}"
+
+    "--default-timeout"
+    "4000"
+  ];
+  renames = {
+    "mako" = "mako-wrapped";
+  };
+}

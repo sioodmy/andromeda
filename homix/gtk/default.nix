@@ -6,6 +6,16 @@
 }: let
   cfg = config.programs.andromeda;
   inherit (lib) mkIf;
+
+  toGtk3Ini = with lib;
+    generators.toINI {
+      mkKeyValue = key: value: let
+        value' =
+          if isBool value
+          then boolToString value
+          else toString value;
+      in "${escape ["="] key}=${value'}";
+    };
 in {
   config = mkIf cfg.enable {
     homix = let
@@ -22,11 +32,11 @@ in {
       };
     in {
       ".config/gtk-3.0/gtk.css".text = css;
-      ".config/gtk.css".text = css;
-      ".config/gtk-3.0/settings.ini".text = lib.generators.toINI {} {
+      ".config/gtk-4.0/gtk.css".text = css;
+      ".config/gtk-3.0/settings.ini".text = toGtk3Ini {
         Settings = gtkINI;
       };
-      ".config/gtk-4.0/settings.ini".text = lib.generators.toINI {} {
+      ".config/gtk-4.0/settings.ini".text = toGtk3Ini {
         Settings =
           gtkINI
           // {
@@ -35,10 +45,15 @@ in {
       };
     };
 
-    environment.systemPackages = with pkgs; [
-      catppuccin-papirus-folders
-      adw-gtk3
-      lexend
-    ];
+    environment = {
+      systemPackages = with pkgs; [
+        catppuccin-papirus-folders
+        adw-gtk3
+        lexend
+      ];
+      variables = {
+        GTK_THEME = "adw-gtk3";
+      };
+    };
   };
 }

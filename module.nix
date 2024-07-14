@@ -100,11 +100,13 @@ in {
     };
   };
   config = mkIf cfg.enable {
-    environment.systemPackages = [
-      andromeda
-      andromeda-niri
-      cfg.nucleus
-    ];
+    environment.systemPackages =
+      [
+        andromeda
+        andromeda-niri
+        cfg.nucleus
+      ]
+      ++ (import ./nucleus/packages.nix {inherit pkgs;});
   };
 
   imports = [./homix/gtk];

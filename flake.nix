@@ -10,7 +10,7 @@
           default = nucleus;
         };
         devShells.default = pkgs.mkShell {
-          buildInputs = [inputs.self.packages.${pkgs.system}.nucleus];
+          buildInputs = [inputs.self.packages.${pkgs.system}.nucleus] ++ (import ./nucleus/packages.nix {inherit pkgs;});
           shellHook = ''
             nucleus
           '';
@@ -44,13 +44,9 @@
 
   inputs = {
     flake-parts.url = "github:hercules-ci/flake-parts";
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable-small";
     wrapper-manager = {
       url = "github:viperML/wrapper-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    ags = {
-      url = "github:Aylur/ags";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     niri = {
