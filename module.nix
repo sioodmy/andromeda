@@ -11,7 +11,6 @@ inputs: {
 
   # my desktop
   andromeda = pkgs.callPackage ./andromeda {inherit pkgs inputs cfg;};
-  andromeda-niri = pkgs.callPackage ./andromeda-niri {inherit pkgs inputs cfg;};
 
   inherit (lib) mkOption mkEnableOption types mkIf;
 in {
@@ -100,13 +99,17 @@ in {
     };
   };
   config = mkIf cfg.enable {
-    environment.systemPackages =
-      [
-        andromeda
-        andromeda-niri
+    environment.systemPackages = let
+      infoscript = import ./andromeda/misc/infoscript.nix pkgs;
+      osd = import ./andromeda/misc/osd.nix pkgs;
+    in
+      import ./andromeda {inherit pkgs inputs cfg;}
+      ++ (import ./nucleus/packages.nix {inherit pkgs;})
+      ++ [
         cfg.nucleus
-      ]
-      ++ (import ./nucleus/packages.nix {inherit pkgs;});
+        infoscript
+        osd
+      ];
   };
 
   imports = [./homix/gtk];

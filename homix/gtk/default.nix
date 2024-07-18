@@ -48,6 +48,7 @@ in {
     environment = {
       systemPackages = with pkgs; [
         catppuccin-papirus-folders
+        bibata-cursors
         adw-gtk3
         lexend
       ];

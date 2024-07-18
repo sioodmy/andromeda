@@ -26,6 +26,9 @@
     "--text-color"
     "#${base05}"
 
+    "--progress-color"
+    "#${base04}"
+
     "--default-timeout"
     "4000"
   ];

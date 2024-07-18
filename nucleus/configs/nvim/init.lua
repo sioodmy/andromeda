@@ -230,14 +230,6 @@ require("trouble").setup({})
 vim.o.timeout = true
 vim.o.timeoutlen = 500
 
-local wk = require("which-key")
-wk.setup()
-
-wk.register({
-	["<leader>b"] = { "<cmd>Neotree toggle<cr>", "Open Neotree" },
-	["<leader>."] = { vim.lsp.buf.hover, "LSP hover" },
-})
-
 local telescope = require("telescope")
 telescope.setup({})
 telescope.load_extension("harpoon")

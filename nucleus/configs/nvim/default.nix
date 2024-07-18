@@ -38,6 +38,7 @@
         lualine-nvim
         nvim-web-devicons
         gitsigns-nvim
+        vim-fugitive
         indent-blankline-nvim-lua
         nvim-autopairs
         neoformat
@@ -45,7 +46,6 @@
         vim-speeddating
         luasnip
         vim-startuptime
-        which-key-nvim
         telescope-nvim
         harpoon
         alpha-nvim
