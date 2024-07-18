@@ -29,7 +29,7 @@ in
     riverctl border-color-unfocused "0x${c.base02}"
 
     riverctl default-layout rivertile
-    rivertile -view-padding 6 -outer-padding 6 &
+    rivertile -view-padding 3 -outer-padding 3 &
 
     mako-wrapped &
     signal-desktop &

@@ -39,15 +39,15 @@
   };
   org-bullets = {
     pname = "org-bullets";
-    version = "3623e86e0fa6d07f45042f7207fc333c014bf167";
+    version = "7e76e04827ac3fb13fc645a6309ac14203c4ca6a";
     src = fetchFromGitHub {
       owner = "nvim-orgmode";
       repo = "org-bullets.nvim";
-      rev = "3623e86e0fa6d07f45042f7207fc333c014bf167";
+      rev = "7e76e04827ac3fb13fc645a6309ac14203c4ca6a";
       fetchSubmodules = false;
-      sha256 = "sha256-aIEe1dgUmDzu9kl33JCNcgyfp8DymURltH0HcZfph0Y=";
+      sha256 = "sha256-bxiL88uUa0Zd/HL7RcC/XVhbkgdlFr6MmlQfkpxFybE=";
     };
-    date = "2024-02-21";
+    date = "2024-07-09";
   };
   recession = {
     pname = "recession";

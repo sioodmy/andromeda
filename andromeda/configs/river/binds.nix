@@ -4,6 +4,7 @@
     "Super+Shift Return spawn foot"
     "None XF86Favorites spawn infoscript"
     "None XF86Display spawn gtklock"
+    ''None XF86Keyboard spawn "launcher -show emoji''
     ''Super Space spawn "launcher -show drun"''
 
     "Super Q close"
