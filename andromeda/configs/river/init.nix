@@ -10,19 +10,22 @@ in
   pkgs.writeShellScript "river-init" ''
     #!/bin/sh
 
-    dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+    dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP=river
 
     ${init-binds}
 
     TOUCHPAD=$(riverctl list-inputs | rg Touchpad)
-    riverctl input $TOUCHPAD accel-profile flat
+    TRACKPOINT=$(riverctl list-inputs | rg TrackPoint)
+    riverctl input $TOUCHPAD pointer-accel 0.5
     riverctl input $TOUCHPAD natural-scroll enabled
     riverctl input $TOUCHPAD click-method clickfinger
     riverctl input $TOUCHPAD tap enabled
     riverctl input $TOUCHPAD disable-when-typing enabled
 
+    riverctl input $TRACKPOINT pointer-accel -0.3
+
     riverctl keyboard-layout -options "caps:escape" pl
-    riverctl set-repeat 80 500
+    riverctl set-repeat 30 350
 
     riverctl background-color "0x${c.base01}"
     riverctl border-color-focused "0x${c.base04}"

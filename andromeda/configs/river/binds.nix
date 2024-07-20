@@ -4,8 +4,8 @@
     "Super+Shift Return spawn foot"
     "None XF86Favorites spawn infoscript"
     "None XF86Display spawn gtklock"
-    ''None XF86Keyboard spawn "launcher -show emoji''
-    ''Super Space spawn "launcher -show drun"''
+    "None XF86Keyboard spawn 'launcher -show emoji'"
+    "Super Space spawn 'launcher -show drun'"
 
     "Super Q close"
 
@@ -19,11 +19,11 @@
     # yoinks focused view into top of layout stack
     "Super Return zoom"
 
-    ''Super H send-layout-cmd rivertile "main-ratio -0.05"''
-    ''Super L send-layout-cmd rivertile "main-ratio +0.05"''
+    "Super H send-layout-cmd rivertile 'main-ratio -0.05'"
+    "Super L send-layout-cmd rivertile 'main-ratio +0.05'"
 
-    ''Super+Shift H send-layout-cmd rivertile "main-count +1"''
-    ''Super+Shift L send-layout-cmd rivertile "main-count -1"''
+    "Super+Shift H send-layout-cmd rivertile 'main-count +1'"
+    "Super+Shift L send-layout-cmd rivertile 'main-count -1'"
 
     # move floating windows around
     "Super+Alt H move left 50"
@@ -40,15 +40,13 @@
     "Super V toggle-float"
     "Super F toggle-fullscreen"
 
-    ''Super Up send-layout-cmd rivertile "main-location top"''
-    ''Super Right send-layout-cmd rivertile "main-location right"''
-    ''Super Down send-layout-cmd rivertile "main-location bottom"''
-    ''Super Left send-layout-cmd rivertile "main-location left"''
+    "Super Up send-layout-cmd rivertile 'main-location top'"
+    "Super Right send-layout-cmd rivertile 'main-location right'"
+    "Super Down send-layout-cmd rivertile 'main-location bottom'"
+    "Super Left send-layout-cmd rivertile 'main-location left'"
   ];
-
-  riverctl = "${pkgs.river}/bin/riverctl";
 in
-  pkgs.writeShellScript "niri-init-binds" ''
+  pkgs.writeShellScript "river-init-binds" ''
      #!/bin/sh
 
      ${concatStringsSep "\n"
@@ -83,12 +81,12 @@ in
 
     for mode in normal locked
     do
-        riverctl map $mode None XF86AudioRaiseVolume  spawn "mako-osd volume up"
-        riverctl map $mode None XF86AudioLowerVolume  spawn "mako-osd volume down"
-        riverctl map $mode None XF86AudioMute         spawn "mako-osd volume mute"
+        riverctl map $mode None XF86AudioRaiseVolume  spawn 'mako-osd volume up'
+        riverctl map $mode None XF86AudioLowerVolume  spawn 'mako-osd volume down'
+        riverctl map $mode None XF86AudioMute         spawn 'mako-osd volume mute'
 
-        riverctl map $mode None XF86MonBrightnessUp   spawn "mako-osd backlight up"
-        riverctl map $mode None XF86MonBrightnessDown spawn "mako-osd backlight down"
+        riverctl map $mode None XF86MonBrightnessUp   spawn 'mako-osd backlight up'
+        riverctl map $mode None XF86MonBrightnessDown spawn 'mako-osd backlight down'
     done
 
 
