@@ -84,6 +84,8 @@ in {
     alejandra
     vscode-langservers-extracted
     bash-language-server
+    clang-tools
+    zls
     gleam
     nodePackages.typescript-language-server
     nodePackages.prettier
