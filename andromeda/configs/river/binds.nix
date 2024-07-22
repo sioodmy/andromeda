@@ -1,11 +1,13 @@
 {pkgs, ...}: let
   inherit (builtins) concatStringsSep map;
+  inherit (pkgs.lib) getExe;
   binds-normal = [
     "Super+Shift Return spawn foot"
     "None XF86Favorites spawn infoscript"
     "None XF86Display spawn gtklock"
     "None XF86Keyboard spawn 'launcher -show emoji'"
     "Super Space spawn 'launcher -show drun'"
+    "Super+Shift S spawn '${getExe pkgs.slurp} | ${getExe pkgs.grim} -g - - | ${pkgs.wl-clipboard}/bin/wl-copy'"
 
     "Super Q close"
 

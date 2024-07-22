@@ -17,6 +17,7 @@ in
     TOUCHPAD=$(riverctl list-inputs | rg Touchpad)
     TRACKPOINT=$(riverctl list-inputs | rg TrackPoint)
     riverctl input $TOUCHPAD pointer-accel 0.5
+    riverctl input $TOUCHPAD accel-profile flat
     riverctl input $TOUCHPAD natural-scroll enabled
     riverctl input $TOUCHPAD click-method clickfinger
     riverctl input $TOUCHPAD tap enabled
